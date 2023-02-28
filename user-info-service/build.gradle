@@ -1,0 +1,36 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.10'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.griddynamics.reactive.course'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
+    implementation 'junit:junit:4.13.1'
+    implementation('org.apache.commons:commons-lang3:3.12.0')
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+    implementation('io.projectreactor:reactor-tools:3.4.0')
+    
+    testCompileOnly 'org.projectlombok:lombok:1.18.20'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    testImplementation('org.junit.jupiter:junit-jupiter:5.5.1')
+    testImplementation 'io.projectreactor:reactor-test:3.4.9'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
