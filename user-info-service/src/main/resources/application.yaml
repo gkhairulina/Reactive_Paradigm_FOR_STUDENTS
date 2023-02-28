@@ -1,0 +1,23 @@
+management:
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: info, health, metrics
+  endpoint:
+    health:
+      show-details: always
+      enabled: true
+    metrics:
+      enabled: true
+logging:
+  pattern:
+    level: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} [%mdc{requestId:-}] - %msg%n"
+spring:
+  data:
+    mongodb:
+      host: mongo
+      password: pwd
+      username: root
+      database: admin
+      port: 27017

@@ -6,7 +6,7 @@ services:
     image: mongo
     volumes:
       - ./mongo/data/users.json:/src/data/users.json
-    command: mongoimport --host mongo --username root --password pwd --db admin --collection users --file /src/data/users.json --jsonArray
+    command: mongoimport --host mongo --username root --password pwd --db admin --collection user --file /src/data/users.json --jsonArray
 
   mongo:
     image: mongo
@@ -34,3 +34,19 @@ services:
     image: product-info-service
     ports:
       - 8082:8080
+
+  user-info-service:
+    build:
+      context: ./user-info-service
+      dockerfile: Dockerfile
+    image: user-info-service
+    ports:
+      - 8083:8080
+
+  user-info-service:
+    build:
+      context: ./user-info-service
+      dockerfile: Dockerfile
+    image: user-info-service
+    ports:
+      - 8083:8080
